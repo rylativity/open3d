@@ -1,0 +1,15 @@
+services:  
+  jupyter:
+    build: 
+      context: ./jupyter
+    ports: 
+      - 8888:8888
+    volumes:
+      - ./data:/workspace/data
+      - ./jupyter/notebooks/:/workspace/notebooks/
+      - ~/.cache/:/root/.cache/
+    environment:
+      - KERAS_BACKEND=tensorflow
+    # extra_hosts:
+    #   - host.docker.internal:host-gateway
+  
